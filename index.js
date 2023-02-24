@@ -169,9 +169,12 @@ Aşağıdaki işlemleri yapmak için indekseGoreFenomen işlevini kullanın:
 NOT: DÖNDÜĞÜNÜZ DİZİN YUKARIDAKİ BİÇİMLE EŞLEŞMESİ GEREKİR, YA DA TESTİ GEÇMEYECEKTİR!
 ÖRNEK: fenomenler dizisi ve 3 sayısı ile indekseGoreFenomen çağrılırsa, `3. indekste bulunan fenomen: Leo Messi' */
 
-function indekseGoreFenomen(/*kod*/) {
-  /*kod*/
+function indekseGoreFenomen(array,index) {
+  let profil=array[index].profile;
+  let a =(`$({index}. indexte bulunan fenomen: ${profil}`);
+  return a;
 }
+console.log(indekseGoreFenomen(fenomenler,3));
 
 
 
@@ -183,9 +186,14 @@ Aşağıdakileri yapmak için profilListesi'ni kullanın:
 🌟 Dönüş ÖRNEĞİ: ["Instagram", "Cristiano Ronaldo", "Kylie"....]
 */
 
-function profilListesi(/*kod*/) {
-  /*kod*/
+function profilListesi(dizi) {
+  let newArray =[...dizi];
+  for(let i=0; i<newArray.length; i++){
+    newArray[i]= newArray[i].profile;
+  }
+  return newArray;
 }
+console.log(profilListesi(fenomenler));
 
 
 
@@ -198,10 +206,12 @@ Aşağıdakileri yapmak için fenomenSil'i kullanın:
 5. Ortaya çıkan diziyi döndürün
 
 ÖRNEK: fenomenSil işlevi fenomenler dizisi ve 0 indeks sayısı ile çağrılırsa, veri kümemizden 'Instagram' kaldırılmış olarak döndürür. */
-function fenomenSil(/*kod*/) {
-  /*kod*/
+function fenomenSil(fenomenDizi, index) {
+  let b=[...fenomenDizi];
+  b.splice(index,1);
+  return b;
 }
-
+console.log(fenomenSil(fenomenler,0));
 
 
 /* Görev 6:
@@ -221,9 +231,19 @@ Aşağıdakileri yapmak için fenomenEkle'i kullanın:
 
 ÖRNEK: fenomenEkle(fenomenler, 6, "Workintech", 10000000, 2022, "Instagram") çağrıldığında dizinin sonuna yukarıdaki nesne en sona eklenerek yeni fenomenler dizisini döndürmelidir. */
 
-function fenomenEkle(/*kod*/) {
-  /*kod*/
+function fenomenEkle(dizi, number, profile, followers, posts, platform) {
+  let newObj =[...dizi];
+  const yeniFenomen= {
+    "number": 6,
+    "profile": "Workintech",
+    "followers": 10000000,
+    "posts": 2022,
+    "platform": "Instagram"
+  };
+  newObj.push(yeniFenomen);
+  return newObj;
 }
+console.log(fenomenEkle(fenomenler));
 
 
 /* Görev 7:
